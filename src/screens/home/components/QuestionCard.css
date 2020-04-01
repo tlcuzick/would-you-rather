@@ -1,0 +1,20 @@
+.QuestionCard {
+    border: 1px solid black;
+}
+
+.QuestionCard-h3 {
+    text-align: left;
+}
+
+.QuestionCard-container {
+    display: flex;
+    justify-content: center;
+}
+
+.QuestionCard-img-container {
+    width: 33%;
+}
+
+.QuestionCard-question-container {
+    width: 67%;
+}

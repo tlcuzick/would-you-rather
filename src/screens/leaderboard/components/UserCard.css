@@ -1,0 +1,50 @@
+.UserCard {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.UserCard-img {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.UserCard-questions-container {
+  width: 50%;
+}
+
+.UserCard-questions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.UserCard-score-container {
+  width: 25%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserCard-score-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.UserCard-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}

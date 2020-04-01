@@ -1,0 +1,19 @@
+.Home-container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.Home-button-container {
+    display: flex;
+}
+
+.Home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    font-weight: bold;
+}

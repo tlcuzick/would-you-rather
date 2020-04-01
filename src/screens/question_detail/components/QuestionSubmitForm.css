@@ -1,0 +1,16 @@
+.QuestionSubmitForm {
+    border: 1px solid black;
+}
+
+.QuestionSubmitForm-container {
+    display: flex;
+    justify-content: center;
+}
+
+.QuestionSubmitForm-img-container {
+    width: 33%;
+}
+
+.QuestionSubmitForm-question-container {
+    width: 67%;
+}

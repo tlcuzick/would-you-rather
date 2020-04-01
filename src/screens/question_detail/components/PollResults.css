@@ -1,0 +1,16 @@
+.PollResults {
+    border: 1px solid black;
+}
+
+.PollResults-container {
+    display: flex;
+    justify-content: center;
+}
+
+.PollResults-img-container {
+    width: 33%;
+}
+
+.PollResults-question-container {
+    width: 67%;
+}

@@ -1,0 +1,49 @@
+.CreateQuestion-container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.CreateQuestion-h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.CreateQuestion-h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.CreateQuestion-h3 {
+  font-size: 16px;
+}
+
+.CreateQuestion-divider {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.CreateQuestion-text-input {
+  width: 100%;
+  height: 45px;
+}
+
+.CreateQuestion-button {
+  margin-top: 20px;
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: green;
+  cursor: pointer;
+}
+
+.CreateQuestion-button-text {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}

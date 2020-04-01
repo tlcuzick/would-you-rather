@@ -1,0 +1,7 @@
+.PollResultsCard {
+    border: 1px solid black;
+    padding-left: 20px;
+}
+.PollResultsCard-your-vote {
+    color: #f1150e;
+}

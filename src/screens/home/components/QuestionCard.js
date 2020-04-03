@@ -3,7 +3,7 @@ import './QuestionCard.css'
 
 const QuestionCard = props => {
     
-    const { text, name, avatarURL } = props.question
+    const {id, text, name, avatarURL } = props
     const truncatedText = text.length <= 15 ? text : text.substring(0, 15);
 
     return (

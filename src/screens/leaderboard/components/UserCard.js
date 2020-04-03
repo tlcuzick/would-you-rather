@@ -2,7 +2,7 @@ import React from 'react';
 import './UserCard.css';
 
 const UserCard = props => {
-  const {avatarURL, name, numAnswers, numQuestions, score} = props.user;
+  const {avatarURL, name, numAnswers, numQuestions, score} = props;
   return (
       <div className="UserCard">
         <div className="UserCard-img">

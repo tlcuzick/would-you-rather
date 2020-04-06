@@ -1,3 +1,47 @@
 .NavBar {
-    text-align: center;
+    width: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid green;
+    margin-bottom: 10px;
+}
+
+.NavBar-section {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    width: 45%;
+}
+
+.NavBar-navlink-container {
+  height: 100%;
+  width: 33%;
+  margin: 0 4px;  
+}
+
+.NavBar-navlink {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;      
+  color: black;
+  text-decoration: none;
+  border-radius: 10%;
+  padding: 0 2px;
+  
+}
+
+.NavBar-navlink:hover {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+.NavBar-link {
+ text-decoration: none;
+ color: black;
 }

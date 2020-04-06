@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './QuestionCard.css'
 
 const QuestionCard = props => {
@@ -16,7 +17,7 @@ const QuestionCard = props => {
            <div className="QuestionCard-question-container">
              <h4>Would you rather</h4>
              <p>{`...${truncatedText}...`}</p>
-             <button>View Poll</button>
+             <Link to={`question/${id}`}>View Poll</Link>
            </div>   
        </div>
      </div>

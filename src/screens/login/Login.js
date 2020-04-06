@@ -1,25 +1,27 @@
 /* eslint-disable no-use-before-define */
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Avatar from '@material-ui/core/Avatar';
+import {setAuthedUser} from '../../actions/authedUser';
 import './Login.css';
 
 class Login extends Component {
   
 state= {
-  userId: ''
+  id: ''
 }
 
 handleChange = (event, value) => {
-  const userID = value.hasOwnProperty('id') ? value.id : '';
-  this.setState({userID});
+  const id = value.hasOwnProperty('id') ? value.id : '';
+  this.setState({id});
 }
 
 handleSubmit = e => {
-  e.preventDefault();
-  alert(this.state.userID);
+  this.props.dispatch(setAuthedUser(this.state.id));
+  this.props.history.push('/');
 }
   
 render() {
@@ -50,7 +52,7 @@ const {usersArray} = this.props;
         renderOption={(option) => (
           <React.Fragment>
             <span className="Login-select">
-              <Avatar alt={option.name}  src={option.avatarURL} className="Login-img" />
+              <Avatar alt={option.name}  src={option.avatarURL} className="Login-avatar" />
             </span>
             {option.name}
           </React.Fragment>
@@ -78,8 +80,8 @@ const {usersArray} = this.props;
 
   
 const mapStateToProps = ({users}) => {
-  const usersArray = Object.keys(users).map(userID => users[userID]);
+  const usersArray = Object.keys(users).map(id => users[id]);
   return {usersArray}
 }
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));

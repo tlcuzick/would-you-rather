@@ -38,8 +38,9 @@ class QuestionDetail extends Component  {
   }
 }
 
-const mapStateToProps = ({authedUser, questions, users}, {questionID}) => {
-  const question = questions[questionID];
+const mapStateToProps = ({authedUser, questions, users}, props) => {
+  const { id } = props.match.params;  
+  const question = questions[id];
   const {name, avatarURL} = question ? users[question.author] : {name: '', avatarURL: ''};
     return {
       authedUser,

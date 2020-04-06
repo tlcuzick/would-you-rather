@@ -1,57 +1,15 @@
-// This is used to determine if a user is authenticated and
-// if they are allowed to visit the page they navigated to.
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
-// If they are: they proceed to the page
-// If not: they are redirected to the login page.
-import React from 'react'
-import AuthService from './Services/AuthService'
-import { Redirect, Route } from 'react-router-dom'
-
-const PrivateRoute = ({ component: Component, ...rest }) => {
-
-  // Add your own authentication on the below line.
-  const isLoggedIn = AuthService.isLoggedIn()
-
+const PrivateRoute = ({component: Component, authed, ...rest}) => {
   return (
     <Route
       {...rest}
-      render={props =>
-        isLoggedIn ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-        )
-      }
+      render={(props) => authed === true
+        ? <Component {...props} />
+        : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
     />
   )
 }
 
-export default PrivateRoute
-
-/*
-OR:
-
-const DecisionRoute = ({ trueComponent, falseComponent, decisionFunc, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-
-      render={
-        decisionFunc()
-          ? trueComponent
-          : falseComponent
-      }
-    />
-  )
-}
-You can implement that like this
-
-<DecisionRoute path="/signin" exact={true}
-            trueComponent={redirectStart}
-            falseComponent={SignInPage}
-            decisionFunc={isAuth}
-          />
-decisionFunc just a function that return true or false
-
-const redirectStart = props => <Redirect to="/orders" />
-*/
+export default PrivateRoute;

@@ -21,10 +21,14 @@ handleChange = (event, value) => {
 
 handleSubmit = e => {
   this.props.dispatch(setAuthedUser(this.state.id));
-  this.props.history.push('/');
+  const {state} = this.props.location;
+  const redirectPath = state ? state.from.pathname : '/';
+  this.props.history.push(redirectPath);
 }
   
 render() {
+
+console.log(this.props)
     
 const styles = {
         width: 450,

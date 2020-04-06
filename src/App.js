@@ -17,16 +17,16 @@ class App extends Component {
   }  
   
   render() {
-    //console.log(this.props)
+    const authed = this.props.authedUser ? true : false;
     return (
       <Router>
         <div className="App">
           <NavBar />
           <Route path='/' exact component={Home} />
-          <Route path='/login' component={Login} />
-          <PrivateRoute authedUser={this.props.authedUser} path='/question/:id' component={QuestionDetail} />
-          <PrivateRoute authedUser={this.props.authedUser} path='/leaderboard' component={Leaderboard} />
-          <Route path='/new' component={CreateQuestion} />
+          <Route path='/login' exact component={Login} />
+          <PrivateRoute authed={authed} path='/question/:id' exact component={QuestionDetail} />
+          <PrivateRoute authed={authed} path='/leaderboard' exact component={Leaderboard} />
+          <PrivateRoute authed={authed} path='/new' exact component={CreateQuestion} />
         </div>
       </Router>
     );   
@@ -34,7 +34,7 @@ class App extends Component {
 }
 
 function mapStateToProps({authedUser}) {
-  return authedUser;
+  return {authedUser};
 }
 
 export default connect(mapStateToProps)(App); 

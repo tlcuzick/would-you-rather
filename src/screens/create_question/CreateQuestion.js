@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
+import {handleAddQuestion} from '../../actions/shared';
 import './CreateQuestion.css';
-import { v4 as uuid} from 'uuid';
 
 class CreateQuestion extends Component {
   state = {
@@ -17,38 +19,25 @@ class CreateQuestion extends Component {
     this.setState({optionTwo: event.target.value})
   }
   
-  createQuestionObj = () => {
-    const date = new Date();
-    const timestamp = date.getTime();
-    
-    return {
-      id: uuid(),
-      author: this.props.authedUser,
-      timestamp,
-      optionOne: {
-        votes: [],
-        text: this.state.optionOne
-      },
-      optionTwo: {
-        votes: [],
-        text: this.state.optionTwo
-      }      
-    }    
-  }
   
   handleSubmit = () => {
-    const question = this.createQuestionObj();
-    console.log(question);
-    this.setState({optionOne: '', optionTwo: ''});
+    const {optionOne, optionTwo} = this.state;
+    
+    if(optionOne.length > 0 && optionTwo.length > 0) {
+      this.props.dispatch(handleAddQuestion(optionOne, optionTwo));
+      this.props.history.push('/');      
+    }
   }
   
   render() {
+    
     return (
       <div className="CreateQuestion-container">
         <h1 className="CreateQuestion-h1">Create New Question</h1>
         <h3 className="CreateQuestion-h3">Complete the question:</h3>
         <h2 className="CreateQuestion-h2">Would you rather...</h2>
         <TextField 
+          error={this.state.optionOne.length === 0}
           value={this.state.optionOne}
           onChange={this.handleOptionOneChange}
           label="Option One" 
@@ -56,7 +45,8 @@ class CreateQuestion extends Component {
           className="CreateQuestion-text-input"
         />
         <div className="CreateQuestion-divider">OR</div>
-        <TextField 
+        <TextField
+          error={this.state.optionTwo.length === 0}
           value={this.state.optionTwo}
           onChange={this.handleOptionTwoChange}
           label="Option Two" 
@@ -71,8 +61,4 @@ class CreateQuestion extends Component {
   }
 }
 
-CreateQuestion.defaultProps = {
-  authedUser: 'sarahedo'
-}
-
-export default CreateQuestion;
+export default withRouter(connect()(CreateQuestion));

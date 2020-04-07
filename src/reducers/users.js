@@ -9,22 +9,21 @@ export const users = (state = {}, action) => {
         ...action.users
       }
     case ADD_QUESTION:
-      const authedUser = action.question.author;
+      return {
+        ...state,
+        [action.question.author]: {
+          ...state[action.question.author],
+          questions: state[action.question.author].questions.concat([action.question.id])
+        }
+      }
+    case ADD_QUESTION_ANSWER:
+      const {qid, answer, authedUser} = action.info;
       return {
         ...state,
         [authedUser]: {
           ...state[authedUser],
-          questions: state[authedUser].questions.concat([action.question.id])
-        }
-      }
-    case ADD_QUESTION_ANSWER:
-      const {qid, answer, author} = action.info;
-      return {
-        ...state,
-        [author]: {
-          ...state[author],
           answers: {
-            ...state[author].answers,
+            ...state[authedUser].answers,
             [qid]: answer
           }
         }

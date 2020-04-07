@@ -2,6 +2,7 @@ import { getInitialData } from '../utils/api'
 import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from '../actions/questions'
 import { setAuthedUser } from '../actions/authedUser'
+import {showLoading, hideLoading} from '../actions/loading';
 import {saveQuestion} from '../utils/api';
 import {saveQuestionAnswer} from '../utils/api';
 
@@ -12,8 +13,10 @@ export const handleInitialData = () => {
   return (dispatch) => {
     return getInitialData()
       .then(({ users, questions }) => {
+        dispatch(showLoading())
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
+        dispatch(hideLoading())
         //dispatch(setAuthedUser(AUTHED_ID))
       })
   }
@@ -35,7 +38,11 @@ export const handleAddQuestion = (optionOneText, optionTwoText) => {
       optionTwoText,
       author: authedUser
     })
-    .then((question) => dispatch(addQuestion(question)))
+    .then((question) => {
+      dispatch(showLoading())
+      dispatch(addQuestion(question))    
+      dispatch(hideLoading())
+    })
   }
 }
 
@@ -53,9 +60,13 @@ export const handleAddQuestionAnswer = (qid, answer) => {
     const info = {
       qid,
       answer,
-      author: authedUser
+      authedUser
     }
     return saveQuestionAnswer(info)
-    .then(() => dispatch(addQuestionAnswer(info)));
+    .then(() => {
+      dispatch(showLoading())
+      dispatch(addQuestionAnswer(info))      
+      dispatch(hideLoading())
+    })
   }
 }

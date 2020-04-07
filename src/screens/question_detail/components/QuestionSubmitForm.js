@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
-import {handleAddQuestionAnswer} from '../../../utils/api';
+import {handleAddQuestionAnswer} from '../../../actions/shared';
 import './QuestionSubmitForm.css'
 
 class QuestionSubmitForm extends Component {
@@ -63,4 +63,4 @@ class QuestionSubmitForm extends Component {
     }
 }
 
-export default QuestionSubmitForm;
+export default connect()(QuestionSubmitForm);

@@ -15,7 +15,7 @@ export const questions = (state = {}, action) => {
         [action.question.id]: action.question
       }
     case ADD_QUESTION_ANSWER:
-      const {qid, answer, author} = action.info;
+      const {qid, answer, authedUser} = action.info;
       
        return {
         ...state,
@@ -23,7 +23,7 @@ export const questions = (state = {}, action) => {
           ...state[qid],
           [answer]: {
             ...state[qid][answer],
-            votes: state[qid][answer].votes.concat([author])
+            votes: state[qid][answer].votes.concat([authedUser])
           }
         }
       }

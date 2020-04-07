@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/TextField';
 import NavBar from './shared_components/NavBar'
 import Home from './screens/home/Home'
 import QuestionDetail from './screens/question_detail/QuestionDetail';
@@ -18,7 +19,10 @@ class App extends Component {
   
   render() {
     const authed = this.props.authedUser ? true : false;
-    return (
+    return this.props.loading ? (
+      <CircularProgress /> 
+      ) :
+      (
       <Router>
         <div className="App">
           <NavBar />
@@ -33,8 +37,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({authedUser}) {
-  return {authedUser};
+function mapStateToProps({authedUser, loading}) {
+  return {authedUser, loading};
 }
 
 export default connect(mapStateToProps)(App); 

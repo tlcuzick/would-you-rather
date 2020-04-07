@@ -7,7 +7,7 @@ import './QuestionDetail.css';
 class QuestionDetail extends Component  {
 
   render() {
-    const {authedUser, question, name, avatarURL} = this.props;
+    const {id, authedUser, question, name, avatarURL} = this.props;
     
     return (
         question && authedUser ? (
@@ -24,6 +24,7 @@ class QuestionDetail extends Component  {
                ) :
               (
               <QuestionSubmitForm
+                id={id}
                 optionOne={question.optionOne}
                 optionTwo={question.optionTwo}
                 name={name}
@@ -43,6 +44,7 @@ const mapStateToProps = ({authedUser, questions, users}, props) => {
   const question = questions[id];
   const {name, avatarURL} = question ? users[question.author] : {name: '', avatarURL: ''};
     return {
+      id,
       authedUser,
       name,
       avatarURL,

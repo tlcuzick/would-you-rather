@@ -1,5 +1,5 @@
 import { RECEIVE_QUESTIONS } from '../actions/questions';
-import { ADD_QUESTION } from '../actions/shared';
+import { ADD_QUESTION, ADD_QUESTION_ANSWER } from '../actions/shared';
 
 export const questions = (state = {}, action) => {
 
@@ -10,10 +10,22 @@ export const questions = (state = {}, action) => {
         ...action.questions
       }
     case ADD_QUESTION:
-      console.log('test')
       return {
         ...state,
         [action.question.id]: action.question
+      }
+    case ADD_QUESTION_ANSWER:
+      const {qid, answer, author} = action.info;
+      
+       return {
+        ...state,
+        [qid]: {
+          ...state[qid],
+          [answer]: {
+            ...state[qid][answer],
+            votes: state[qid][answer].votes.concat([author])
+          }
+        }
       }
       
     default :

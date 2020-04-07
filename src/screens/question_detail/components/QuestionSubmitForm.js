@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
+import {handleAddQuestionAnswer} from '../../../utils/api';
 import './QuestionSubmitForm.css'
 
 class QuestionSubmitForm extends Component {
     state = {
-        selectedOption: 'option1'
+        selectedOption: 'optionOne'
     }
     
     handleOptionChange = e => {
@@ -12,9 +14,7 @@ class QuestionSubmitForm extends Component {
     
     handleSubmit = e => {
         e.preventDefault();
-        const {optionOne, optionTwo} = this.props;
-        alert(this.props.authedUser);
-        alert(this.state.selectedOption === 'option1' ? optionOne.text: optionTwo.text);
+        this.props.dispatch(handleAddQuestionAnswer(this.props.id, this.state.selectedOption))
     }
     
     render() {
@@ -34,8 +34,8 @@ class QuestionSubmitForm extends Component {
                       <label>
                         <input
                             type="radio"
-                            value="option1"
-                            checked={this.state.selectedOption === 'option1'}
+                            value="optionOne"
+                            checked={this.state.selectedOption === 'optionOne'}
                             onChange={this.handleOptionChange}
                         />
                         {optionOne.text}
@@ -45,8 +45,8 @@ class QuestionSubmitForm extends Component {
                       <label>
                         <input
                             type="radio"
-                            value="option2"
-                            checked={this.state.selectedOption === 'option2'}
+                            value="optionTwo"
+                            checked={this.state.selectedOption === 'optionTwo'}
                             onChange={this.handleOptionChange}                            
                         />
                         {optionTwo.text}

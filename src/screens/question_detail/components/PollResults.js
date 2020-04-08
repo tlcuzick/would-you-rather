@@ -4,7 +4,7 @@ import PollResultsCard from './PollResultsCard';
 
 const PollResults = props => {
     
-      const {authedUser, optionOne, optionTwo, author, name, avatarURL} = props;
+      const {authedUser, optionOne, optionTwo, name, avatarURL} = props;
     
       const totalVotes = optionOne.votes.length + optionTwo.votes.length;
       const winningQuestion = optionOne.votes.length >= optionTwo.votes.length ? optionOne : optionTwo;
@@ -13,13 +13,15 @@ const PollResults = props => {
       
       return (
          <div className="PollResults">
-           <h3 className="PollResults-h3">{`Asked by ${name}`}</h3>    
+           <div className="PollResults-header">
+             <h3 className="PollResults-header-text">{`Asked by ${name}`}</h3>
+           </div>            
            <div className="PollResults-container">
                <div className="PollResults-img-container">
-                 <img src={`${avatarURL}`} alt={`${name}`} />
+                 <img className="PollResults-img" src={`${avatarURL}`} alt={`${name}`} />
                </div>
                <div className="PollResults-question-container">
-                 <h2>Results</h2>
+                 <h2 className="PollResults-h2">Results</h2>
                  <PollResultsCard
                     authedUser={authedUser}
                     question={winningQuestion}

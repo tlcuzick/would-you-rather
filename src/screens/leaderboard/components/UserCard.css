@@ -1,17 +1,26 @@
 .UserCard {
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
+  border: 1px solid #E0E0E0;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.UserCard-img-container {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .UserCard-img {
-  width: 25%;
-  display: flex;
-  align-items: center;
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
 }
 
 .UserCard-questions-container {
-  width: 50%;
+  width: 45%;
 }
 
 .UserCard-questions {
@@ -21,11 +30,32 @@
 
 .UserCard-score-container {
   width: 25%;
+  margin: 15px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid #E0E0E0;
+  border-radius: 2px;
+}
+
+.UserCard-score-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 10px;
+}
+
+.UserCard-score-header-text {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .UserCard-score-card {
@@ -34,17 +64,17 @@
   align-items: center;
   height: 100px;
   width: 100px;
-  border: 1px solid black;
 }
 
 .UserCard-score {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  height: 75px;
+  width: 75px;
   border-radius: 50%;
-  background-color: green;
+  background-color: #20B2AA;
   color: white;
+  font-size: 24px;
   font-weight: bold;
 }

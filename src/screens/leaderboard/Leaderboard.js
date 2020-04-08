@@ -5,7 +5,6 @@ import './Leaderboard.css';
 
 class Leaderboard extends Component {
     render() {
-      console.log(this.props)
       const {users} = this.props;
       
       return (

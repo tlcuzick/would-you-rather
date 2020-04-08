@@ -1,5 +1,6 @@
 .QuestionSubmitForm {
-    border: 1px solid black;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
 }
 
 .QuestionSubmitForm-container {
@@ -7,10 +8,57 @@
     justify-content: center;
 }
 
+.QuestionSubmitForm-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #F0F0F0;
+    border-bottom: 1px solid #D3D3D3;
+    padding: 5px 0 0 5px;
+}
+
+.QuestionSubmitForm-header-text {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
 .QuestionSubmitForm-img-container {
     width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #D3D3D3;
+}
+
+.QuestionSubmitForm-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
 }
 
 .QuestionSubmitForm-question-container {
     width: 67%;
+    padding: 10px;
+}
+
+.QuestionSubmitForm-radio {
+  padding-bottom: 10px;
+}
+
+.QuestionSubmitForm-button {
+  width: 100%;
+  height: 40px;
+  background-color: #20B2AA;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #20B2AA;
+  border-radius: 2%;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
 }

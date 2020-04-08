@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Avatar from '@material-ui/core/Avatar';
 import './QuestionCard.css'
 
 const QuestionCard = props => {

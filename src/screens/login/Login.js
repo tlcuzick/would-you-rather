@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
@@ -27,8 +27,6 @@ handleSubmit = e => {
 }
   
 render() {
-
-console.log(this.props)
     
 const styles = {
         width: 450,

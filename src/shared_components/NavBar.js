@@ -15,7 +15,7 @@ class NavBar extends Component {
   render() {
     
     const activeStyle = {
-      backgroundColor: 'green',
+      backgroundColor: '#20B2AA',
       color: 'white',
       fontWeight: 'bold'
     }
@@ -27,7 +27,6 @@ class NavBar extends Component {
           <li><Avatar alt={user.name}  src={user.avatarURL} /></li>
           <li className="NavBar-navlink-container">
             <Link
-              activeStyle={activeStyle}
               onClick={this.logout}
               className="NavBar-navlink"
               to='/'

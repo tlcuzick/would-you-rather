@@ -1,7 +1,22 @@
 .PollResultsCard {
-    border: 1px solid black;
-    padding-left: 20px;
+    border: 1px solid #D3D3D3;
+    border-radius: 2px;
+    margin: 15px;
+    padding: 15px;
 }
 .PollResultsCard-your-vote {
     color: #f1150e;
+}
+
+.PollResultsCard-bar-container {
+  background-color: #D3D3D3;
+}
+
+.PollResultsCard-bar {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #20B2AA;  
 }

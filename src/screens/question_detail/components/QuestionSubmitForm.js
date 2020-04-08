@@ -18,19 +18,21 @@ class QuestionSubmitForm extends Component {
     }
     
     render() {
-        const {optionOne, optionTwo, author, name, avatarURL} = this.props;
+        const {optionOne, optionTwo, name, avatarURL} = this.props;
         
         return (
          <div className="QuestionSubmitForm">
-           <h3 className="QuestionSubmitForm-h3">{`${name} asks...`}</h3>    
+           <div className="QuestionSubmitForm-header">
+             <h3 className="QuestionSubmitForm-header-text">{`${name} asks...`}</h3>
+           </div>           
            <div className="QuestionSubmitForm-container">
                <div className="QuestionSubmitForm-img-container">
-                 <img src={`${avatarURL}`} alt={`${name}`} />
+                 <img src={`${avatarURL}`} alt={`${name}`} className="QuestionSubmitForm-img" />
                </div>
                <div className="QuestionSubmitForm-question-container">
                  <h2>Would You Rather...</h2>
                  <form onSubmit={this.handleSubmit}>
-                    <div className="radio">
+                    <div className="QuestionSubmitForm-radio">
                       <label>
                         <input
                             type="radio"
@@ -41,7 +43,7 @@ class QuestionSubmitForm extends Component {
                         {optionOne.text}
                       </label>
                     </div>
-                    <div className="radio">
+                    <div className="QuestionSubmitForm-radio">
                       <label>
                         <input
                             type="radio"
@@ -52,7 +54,7 @@ class QuestionSubmitForm extends Component {
                         {optionTwo.text}
                       </label>
                       <div>
-                        <button>Submit</button>
+                        <button className="QuestionSubmitForm-button">Submit</button>
                       </div>
                     </div>                 
                  </form>

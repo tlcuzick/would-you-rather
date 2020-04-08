@@ -5,8 +5,8 @@ const UserCard = props => {
   const {avatarURL, name, numAnswers, numQuestions, score} = props;
   return (
       <div className="UserCard">
-        <div className="UserCard-img">
-          <img src={avatarURL} alt={name} />
+        <div className="UserCard-img-container">
+          <img className="UserCard-img" src={avatarURL} alt={name} />
         </div>
         <div className="UserCard-questions-container">
           <h2>{name}</h2>
@@ -20,7 +20,9 @@ const UserCard = props => {
           </div>
         </div>
         <div className="UserCard-score-container">
-          <h3>Score</h3>
+          <div className="UserCard-score-header">
+            <h3 className="UserCard-score-header-text">Score</h3>
+          </div>
           <div className="UserCard-score-card">
               <div className="UserCard-score">
                 <span>{score}</span>

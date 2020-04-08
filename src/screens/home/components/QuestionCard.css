@@ -1,20 +1,60 @@
 .QuestionCard {
-    border: 1px solid black;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    margin: 10px;
 }
 
-.QuestionCard-h3 {
+.QuestionCard-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #F0F0F0;
+    border-bottom: 1px solid #D3D3D3;
+    padding: 5px 0 0 5px;
+    margin-bottom: 10px;
+}
+
+.QuestionCard-header-text {
     text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .QuestionCard-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .QuestionCard-img-container {
     width: 33%;
+    height: auto;
+}
+
+.QuestionCard-img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
 }
 
 .QuestionCard-question-container {
     width: 67%;
+}
+
+.QuestionCard-button {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #20B2AA;
+  border-radius: 2%;
+  text-decoration: none;  
+}
+
+.QuestionCard-button-text {
+  color: #20B2AA;
+  font-weight: bold;
 }

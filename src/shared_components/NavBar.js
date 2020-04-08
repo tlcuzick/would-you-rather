@@ -24,7 +24,7 @@ class NavBar extends Component {
     const loginLogoutJSX = user ? (
         <ul className="NavBar-section">
           <li>{`Hello, ${user.name}`}</li>
-          <li><Avatar alt={user.name}  src={user.avatarURL} className="NavBar-avatar" /></li>
+          <li><Avatar alt={user.name}  src={user.avatarURL} /></li>
           <li className="NavBar-navlink-container">
             <Link
               activeStyle={activeStyle}
@@ -67,7 +67,7 @@ class NavBar extends Component {
             <NavLink
               className="NavBar-navlink"
               activeStyle={activeStyle}
-              to='/new'
+              to='/add'
             >
               <span>New Question</span>
             </NavLink>

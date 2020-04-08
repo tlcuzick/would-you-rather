@@ -7,7 +7,7 @@ export const loading = (state = false, action) => {
       return true
     case HIDE_LOADING:
       return false
-    default :
+    default:
       return state
   }
 }

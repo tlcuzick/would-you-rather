@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Avatar from '@material-ui/core/Avatar';
 import './QuestionCard.css'
 
 const QuestionCard = props => {
@@ -9,15 +10,19 @@ const QuestionCard = props => {
 
     return (
      <div className="QuestionCard">
-       <h3 className="QuestionCard-h3">{`${name} asks...`}</h3>    
+       <div className="QuestionCard-header">
+         <h3 className="QuestionCard-header-text">{`${name} asks...`}</h3>
+       </div>    
        <div className="QuestionCard-container">
            <div className="QuestionCard-img-container">
-             <img src={`${avatarURL}`} alt={`${name}`} />
+             <img alt={name}  src={avatarURL} className="QuestionCard-img" />
            </div>
            <div className="QuestionCard-question-container">
              <h4>Would you rather</h4>
              <p>{`...${truncatedText}...`}</p>
-             <Link to={`question/${id}`}>View Poll</Link>
+             <Link to={`question/${id}`} className="QuestionCard-button">
+                <span className="QuestionCard-button-text">View Poll</span>
+             </Link>
            </div>   
        </div>
      </div>

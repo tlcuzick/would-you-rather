@@ -11,13 +11,12 @@ export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER';
 
 export const handleInitialData = () => {
   return (dispatch) => {
+    dispatch(showLoading())    
     return getInitialData()
       .then(({ users, questions }) => {
-        dispatch(showLoading())
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
         dispatch(hideLoading())
-        //dispatch(setAuthedUser(AUTHED_ID))
       })
   }
 } 
@@ -31,6 +30,7 @@ const addQuestion = question => {
 
 export const handleAddQuestion = (optionOneText, optionTwoText) => {
   return (dispatch, getState) => {
+    dispatch(showLoading())
     const { authedUser } = getState()
 
     return saveQuestion({
@@ -56,6 +56,9 @@ const addQuestionAnswer = info => {
 
 export const handleAddQuestionAnswer = (qid, answer) => {
   return (dispatch, getState) => {
+    
+    dispatch(showLoading())
+    
     const { authedUser } = getState()
     const info = {
       qid,

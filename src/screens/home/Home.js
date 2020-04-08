@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import QuestionCard from './components/QuestionCard'
+import {displayAnswered, displayUnanswered} from '../../actions/displayAnswered';
 import './Home.css';
 
 class Home extends Component {
- 
-  state = {
-    displayAnswered: false
-  }
   
   filterQuestions = (questions, authedUser, displayAnswered) => {
     return questions.filter(question => {
@@ -18,11 +15,11 @@ class Home extends Component {
   }
   
   displayUnanswered = () => {
-    this.setState({displayAnswered: false}) 
+    this.props.dispatch(displayUnanswered())
   }    
   
   displayAnswered = () => {
-    this.setState({displayAnswered: true}) 
+    this.props.dispatch(displayAnswered())    
   }
   
 render() {
@@ -33,7 +30,7 @@ render() {
         this.filterQuestions(
           questions,
           authedUser,
-          this.state.displayAnswered
+          this.props.displayAnswered
         )
         .map(question => {
           const updatedQuestion = {
@@ -46,8 +43,8 @@ render() {
         })
         
         const selectedButtonStyle = {
-          color: 'green',
-          backgroundColor: '#D3D3D3'
+          color: '#20B2AA',
+          backgroundColor: '#E0E0E0'
         }
         
       return (
@@ -56,14 +53,14 @@ render() {
                 <div
                   className="Home-button"
                   onClick={this.displayUnanswered}
-                  style={this.state.displayAnswered ? null: selectedButtonStyle}                  
+                  style={this.props.displayAnswered ? null: selectedButtonStyle}                  
                 >
                   <span>Unanswered Questions</span>
                 </div>
                 <div
                   className="Home-button"
                   onClick={this.displayAnswered}
-                  style={this.state.displayAnswered ? selectedButtonStyle: null}
+                  style={this.props.displayAnswered ? selectedButtonStyle: null}
                 >
                   <span>Answered Questions</span>
                 </div>
@@ -74,7 +71,7 @@ render() {
     }
 }
 
-const mapStateToProps = ({ authedUser, users, questions }) => {
+const mapStateToProps = ({ authedUser, users, questions, displayAnswered }) => {
   
   const questionIDs = Object.keys(questions);
   
@@ -87,7 +84,8 @@ const mapStateToProps = ({ authedUser, users, questions }) => {
   
   return {
     authedUser,
-    questions: questionData
+    questions: questionData,
+    displayAnswered
   }
 }
 

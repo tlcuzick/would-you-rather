@@ -1,13 +1,15 @@
-import { DISPLAY_ANSWERED, DISPLAY_UNANSWERED } from '../actions/displayAnswered';
+import {
+  DISPLAY_ANSWERED,
+  DISPLAY_UNANSWERED
+} from "../actions/displayAnswered";
 
 export const displayAnswered = (state = false, action) => {
-
-  switch(action.type) {
+  switch (action.type) {
     case DISPLAY_ANSWERED:
-      return true
+      return true;
     case DISPLAY_UNANSWERED:
-      return false
+      return false;
     default:
-      return state
+      return state;
   }
-}
+};

@@ -1,95 +1,86 @@
-import React, {Component} from 'react';
-import {NavLink, Link} from 'react-router-dom';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Avatar from '@material-ui/core/Avatar';
-import {setAuthedUser} from '../actions/authedUser';
+import { setAuthedUser } from '../actions/authedUser';
 import './NavBar.css';
 
-
 class NavBar extends Component {
-  
   logout = () => {
     this.props.dispatch(setAuthedUser(null));
-  }  
-  
+  };
+
   render() {
-    
     const activeStyle = {
       backgroundColor: '#20B2AA',
       color: 'white',
       fontWeight: 'bold'
-    }
-    const {user} = this.props;
-    
+    };
+    const { user } = this.props;
+
     const loginLogoutJSX = user ? (
-        <ul className="NavBar-section">
-          <li>{`Hello, ${user.name}`}</li>
-          <li><Avatar alt={user.name}  src={user.avatarURL} /></li>
-          <li className="NavBar-navlink-container">
-            <Link
-              onClick={this.logout}
-              className="NavBar-navlink"
-              to='/'
-            >
-              Logout
-            </Link>
-          </li>
-        </ul>      
+      <ul className='NavBar-section'>
+        <li>{`Hello, ${user.name}`}</li>
+        <li>
+          <Avatar alt={user.name} src={user.avatarURL} />
+        </li>
+        <li className='NavBar-navlink-container'>
+          <Link onClick={this.logout} className='NavBar-navlink' to='/'>
+            Logout
+          </Link>
+        </li>
+      </ul>
     ) : (
-        <ul className="NavBar-section" style={{justifyContent: 'flex-end'}}>
-          <li className="NavBar-navlink-container">
-            <NavLink
-              activeStyle={activeStyle}
-              className="NavBar-navlink"
-              to='/login'
-            >
-              Login
-            </NavLink>
-          </li> 
-        </ul>
-    )
-    
+      <ul className='NavBar-section' style={{ justifyContent: 'flex-end' }}>
+        <li className='NavBar-navlink-container'>
+          <NavLink
+            activeStyle={activeStyle}
+            className='NavBar-navlink'
+            to='/login'>
+            Login
+          </NavLink>
+        </li>
+      </ul>
+    );
+
     return (
-      <nav className="NavBar">
-        <ul className="NavBar-section">
-          <li className="NavBar-navlink-container">
+      <nav className='NavBar'>
+        <ul className='NavBar-section'>
+          <li className='NavBar-navlink-container'>
             <NavLink
-              className="NavBar-navlink"
+              className='NavBar-navlink'
               activeStyle={activeStyle}
               to='/'
-              exact
-            >
+              exact>
               <span>Home</span>
             </NavLink>
           </li>
-          <li className="NavBar-navlink-container">
+          <li className='NavBar-navlink-container'>
             <NavLink
-              className="NavBar-navlink"
+              className='NavBar-navlink'
               activeStyle={activeStyle}
-              to='/add'
-            >
+              to='/add'>
               <span>New Question</span>
             </NavLink>
           </li>
-          <li className="NavBar-navlink-container">
+          <li className='NavBar-navlink-container'>
             <NavLink
-              className="NavBar-navlink"
+              className='NavBar-navlink'
               activeStyle={activeStyle}
-              to='/leaderboard'
-            >
+              to='/leaderboard'>
               <span>Leader Board</span>
             </NavLink>
-          </li>          
+          </li>
         </ul>
         {loginLogoutJSX}
-      </nav>      
-    )
+      </nav>
+    );
   }
 }
 
-const mapStateToProps = ({authedUser, users}) => {
+const mapStateToProps = ({ authedUser, users }) => {
   const user = users[authedUser];
-  return {user}
-}
+  return { user };
+};
 
 export default connect(mapStateToProps)(NavBar);

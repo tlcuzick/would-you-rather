@@ -1,23 +1,25 @@
-import { RECEIVE_USERS} from '../actions/users'
-import { ADD_QUESTION, ADD_QUESTION_ANSWER } from '../actions/shared';
+import { RECEIVE_USERS } from "../actions/users";
+import { ADD_QUESTION, ADD_QUESTION_ANSWER } from "../actions/shared";
 
 export const users = (state = {}, action) => {
-  switch(action.type) {
-    case RECEIVE_USERS :
+  switch (action.type) {
+    case RECEIVE_USERS:
       return {
         ...state,
         ...action.users
-      }
+      };
     case ADD_QUESTION:
       return {
         ...state,
         [action.question.author]: {
           ...state[action.question.author],
-          questions: state[action.question.author].questions.concat([action.question.id])
+          questions: state[action.question.author].questions.concat([
+            action.question.id
+          ])
         }
-      }
+      };
     case ADD_QUESTION_ANSWER:
-      const {qid, answer, authedUser} = action.info;
+      const { qid, answer, authedUser } = action.info;
       return {
         ...state,
         [authedUser]: {
@@ -27,8 +29,8 @@ export const users = (state = {}, action) => {
             [qid]: answer
           }
         }
-      }
+      };
     default:
-      return state
+      return state;
   }
-} 
+};

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-//code adapted from Stackoverflow post from Tyler McGinnis
+//code adapted from Stackoverflow post by Tyler McGinnis
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
+  console.log(authed);
   return (
     <Route
       {...rest}
